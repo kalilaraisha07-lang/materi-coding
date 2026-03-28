@@ -5,10 +5,8 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Github, href: '#', label: 'GitHub' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Youtube, href: '#', label: 'YouTube' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
+    { icon: Github, href: 'https://github.com/kalilaraisha07-lang', label: 'GitHub' },
+    { icon: Instagram, href: 'https://www.instagram.com/khalilaraisha_/', label: 'Instagram' },
   ];
 
   return (
@@ -22,8 +20,8 @@ export default function Footer() {
             className="flex items-center gap-2 text-muted-foreground"
           >
             <span>© {currentYear} Made with</span>
-            <Heart className="h-4 w-4 text-destructive fill-destructive" />
-            <span>by Developer</span>
+            
+            <span>by khalila raisha</span>
           </motion.div>
 
           <motion.div

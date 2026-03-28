@@ -13,9 +13,7 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -29,10 +27,8 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
   ];
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    const el = document.querySelector(href);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
     setIsMobileMenuOpen(false);
   };
 
@@ -44,21 +40,34 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
         isScrolled ? 'glass-strong shadow-card' : 'bg-transparent'
       }`}
     >
-      <div className="container mx-auto px-4">
+      {/* 🔵 Bar Gradient Tipis, tetap sampai bawah logo */}
+      <div
+        className={`absolute top-0 left-0 w-full h-[55px] pointer-events-none
+          bg-gradient-to-b
+          ${isDark
+            ? 'from-blue-300 via-blue-200 to-blue-400/30 blur-sm'
+            : 'from-blue-300 via-blue-200 to-transparent'}`
+        }
+      />
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="flex items-center justify-between h-16 md:h-20">
+          
+          {/* Logo */}
           <motion.a
             href="#home"
             onClick={(e) => {
               e.preventDefault();
               scrollToSection('#home');
             }}
-            className="font-display text-xl md:text-2xl font-bold text-gradient cursor-pointer"
+            className={`font-display text-xl md:text-2xl font-bold text-gradient cursor-pointer
+                        ${isDark ? 'text-white drop-shadow-[0_0_4px_rgba(255,255,255,0.5)] pt-1' : ''}`}
             whileHover={{ scale: 1.05 }}
           >
-            &lt;Dev /&gt;
+            kalila's portfolio
           </motion.a>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <motion.a
@@ -68,17 +77,19 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
                   e.preventDefault();
                   scrollToSection(item.href);
                 }}
-                className="text-muted-foreground hover:text-foreground transition-colors font-medium cursor-pointer"
+                className="text-[#A78BFA] dark:text-[#FBCFE8] hover:text-[#F472B6] dark:hover:text-[#93C5FD] transition-colors font-medium cursor-pointer"
                 whileHover={{ y: -2 }}
               >
                 {item.label}
               </motion.a>
             ))}
+
+            {/* Theme Toggle */}
             <Button
               variant="ghost"
               size="icon"
               onClick={toggleTheme}
-              className="rounded-full"
+              className="rounded-full text-[#F472B6] dark:text-[#93C5FD]"
             >
               <AnimatePresence mode="wait">
                 {isDark ? (
@@ -110,14 +121,16 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
               variant="ghost"
               size="icon"
               onClick={toggleTheme}
-              className="rounded-full"
+              className="rounded-full text-[#F472B6] dark:text-[#93C5FD]"
             >
               {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
+
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-[#F472B6] dark:text-[#93C5FD]"
             >
               {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
@@ -132,7 +145,7 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass-strong border-t border-border"
+            className="md:hidden glass-strong border-t border-blue-200/40"
           >
             <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
               {navItems.map((item) => (
@@ -143,7 +156,7 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
                     e.preventDefault();
                     scrollToSection(item.href);
                   }}
-                  className="text-muted-foreground hover:text-foreground transition-colors font-medium py-2"
+                  className="text-[#A78BFA] dark:text-[#FBCFE8] hover:text-[#F472B6] dark:hover:text-[#93C5FD] transition-colors font-medium py-2"
                 >
                   {item.label}
                 </a>
