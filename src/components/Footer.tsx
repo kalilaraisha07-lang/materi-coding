@@ -19,7 +19,7 @@ export default function Footer() {
             viewport={{ once: true }}
             className="flex items-center gap-2 text-muted-foreground"
           >
-            <span>© {currentYear} Made with</span>
+            <span>© {currentYear} Made</span>
             
             <span>by khalila raisha</span>
           </motion.div>
@@ -34,6 +34,8 @@ export default function Footer() {
               <a
                 key={social.label}
                 href={social.href}
+                target= "_blank"
+                rel="noopener noreferrer"
                 className="p-2 rounded-full hover:bg-muted transition-colors text-muted-foreground hover:text-foreground"
                 aria-label={social.label}
               >
