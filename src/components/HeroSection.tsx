@@ -29,7 +29,7 @@ export default function HeroSection() {
           <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-blue-300 dark:border-blue-400 shadow-lg bg-white/10 backdrop-blur-sm">
             {/* ✅ PERBAIKAN 2: Ganti {profilePic} menjadi link gambar avatar lucu */}
             <img
-              src="https://api.dicebear.com/7.x/avataaars/svg?seed=Kalila"
+              src="/materi-coding/public/profil.jpg.jpeg"
               alt="Khalila Raisha"
               className="w-full h-full object-cover"
             />
