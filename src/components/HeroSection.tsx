@@ -13,6 +13,11 @@ export default function HeroSection() {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+    const socialLinks = [
+    { icon: Github, href: 'https://github.com/kalilaraisha07-lang', label: 'GitHub' },
+    
+    { icon: Instagram, href: 'https://www.instagram.com/khalilaraisha_/', label: 'Instagram' },
+  ];
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
@@ -102,22 +107,22 @@ export default function HeroSection() {
           </motion.div>
 
           <div className="flex items-center justify-center lg:justify-start gap-6">
-            {[Github, Linkedin, Youtube, Instagram].map((Icon, idx) => {
-              const labels = ['GitHub', 'LinkedIn', 'YouTube', 'Instagram'];
-              return (
-                <motion.a
-                  key={labels[idx]}
-                  href="#"
-                  className="p-3 rounded-full glass hover:shadow-glow transition-all duration-300"
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  aria-label={labels[idx]}
-                >
-                  <Icon className="h-5 w-5 text-foreground" />
-                </motion.a>
-              );
-            })}
-          </div>
+            {socialLinks.map((social, index) => {
+              <motion.a
+                key={index}
+                href="social.href"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-full glass hover:shadow-glow transition-all duration-300"
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                aria-Label={social.label}
+              >
+                <social.icon className="h-5 w-5 text-foreground" />
+                </motion.a>  
+              })}
+            </div>
+
         </div>
       </div>
 
