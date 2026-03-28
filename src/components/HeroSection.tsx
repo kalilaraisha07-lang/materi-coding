@@ -2,7 +2,9 @@ import { motion } from 'framer-motion';
 import { ArrowDown, Github, Linkedin, Youtube, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ThreeScene from './ThreeScene';
-import profilePic from '@/assets/profile.jpg'; // ganti path sesuai fotomu
+
+// ✅ PERBAIKAN 1: Hapus import profilePic yang lama karena foldernya tidak ada
+// Sebagai gantinya, kita pakai link gambar langsung di bawah.
 
 export default function HeroSection() {
   const scrollToAbout = () => {
@@ -24,9 +26,10 @@ export default function HeroSection() {
           transition={{ duration: 0.8 }}
           className="flex-shrink-0"
         >
-          <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-blue-300 dark:border-blue-400 shadow-lg">
+          <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-blue-300 dark:border-blue-400 shadow-lg bg-white/10 backdrop-blur-sm">
+            {/* ✅ PERBAIKAN 2: Ganti {profilePic} menjadi link gambar avatar lucu */}
             <img
-              src={profilePic}
+              src="https://api.dicebear.com/7.x/avataaars/svg?seed=Kalila"
               alt="Khalila Raisha"
               className="w-full h-full object-cover"
             />
@@ -54,7 +57,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
+            className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-foreground"
           >
             khalila raisha
           </motion.h1>
@@ -77,7 +80,7 @@ export default function HeroSection() {
           >
             <Button 
               size="lg" 
-              className="rounded-full px-8 shadow-glow"
+              className="rounded-full px-8 shadow-glow bg-primary text-primary-foreground hover:opacity-90 transition-all"
               onClick={() => {
                 const element = document.querySelector('#projects');
                 if (element) element.scrollIntoView({ behavior: 'smooth' });
@@ -88,7 +91,7 @@ export default function HeroSection() {
             <Button 
               variant="outline" 
               size="lg" 
-              className="rounded-full px-8"
+              className="rounded-full px-8 border-primary/50 text-primary hover:bg-primary/10"
               onClick={() => {
                 const element = document.querySelector('#contact');
                 if (element) element.scrollIntoView({ behavior: 'smooth' });
@@ -98,12 +101,7 @@ export default function HeroSection() {
             </Button>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-            className="flex items-center justify-center lg:justify-start gap-6"
-          >
+          <div className="flex items-center justify-center lg:justify-start gap-6">
             {[Github, Linkedin, Youtube, Instagram].map((Icon, idx) => {
               const labels = ['GitHub', 'LinkedIn', 'YouTube', 'Instagram'];
               return (
@@ -119,7 +117,7 @@ export default function HeroSection() {
                 </motion.a>
               );
             })}
-          </motion.div>
+          </div>
         </div>
       </div>
 
