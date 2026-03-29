@@ -19,7 +19,7 @@ const personalStats = {
   soul: [
     { name: 'Family', level: 100, color: 'from-blue-300 to-pink-300' },
     { name: 'Music', level: 85, color: 'from-indigo-200 to-purple-300' },
-    { name: 'Her', level: 100, color: 'from-pink-300 via-purple-300 to-blue-300' },
+    { name: 'Him', level: 100, color: 'from-pink-300 via-purple-300 to-blue-300' },
   ],
 };
 
