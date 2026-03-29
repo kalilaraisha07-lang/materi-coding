@@ -1,25 +1,25 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Brain, Sparkles, Heart } from 'lucide-react';
+import { Brain, Sparkles, IceCream } from 'lucide-react';
 
 const personalStats = {
-  // Urutan 1: Core Logic (Sisi Mindset & Kreativitas)
+  // 1. Core Logic (Mindset & Creativity) - Biru Pastel
   logic: [
     { name: 'Curiosity', level: 99, color: 'from-blue-200 to-blue-400' },
-    { name: 'Design Sense', level: 70, color: 'from-blue-300 to-indigo-300' },
+    { name: 'Design Sense', level: 90, color: 'from-blue-300 to-indigo-300' },
     { name: 'Consistency', level: 80, color: 'from-cyan-200 to-blue-300' },
   ],
-  // Urutan 2: Vibe Check (Sisi Sosial & Energi)
+  // 2. Vibe Check (Social & Energy) - Pink Pastel
   vibe: [
-    { name: 'Energy', level: 99, color: 'from-pink-200 to-pink-400' },
-    { name: 'Humor', level: 80, color: 'from-rose-200 to-pink-300' },
-    { name: 'Social Battery', level: 90, color: 'from-fuchsia-200 to-pink-400' },
+    { name: 'Humor', level: 95, color: 'from-pink-200 to-pink-400' },
+    { name: 'Energy', level: 85, color: 'from-rose-200 to-pink-300' },
+    { name: 'Social Battery', level: 60, color: 'from-fuchsia-200 to-pink-400' },
   ],
-  // Urutan 3: The Soul (Sisi Passion & Love)
+  // 3. The Soul (Priority & Love) - Mix Pastel
   soul: [
     { name: 'Family', level: 100, color: 'from-blue-300 to-pink-300' },
-    { name: 'Music', level: 90, color: 'from-indigo-200 to-purple-300' },
-    { name: 'Him', level: 100, color: 'from-pink-300 via-purple-300 to-blue-300' },
+    { name: 'Music', level: 85, color: 'from-indigo-200 to-purple-300' },
+    { name: 'Her', level: 100, color: 'from-pink-300 via-purple-300 to-blue-300' },
   ],
 };
 
@@ -53,6 +53,7 @@ export default function SkillsSection() {
   return (
     <section id="skills" className="py-20 md:py-32 bg-transparent">
       <div className="container mx-auto px-4">
+        
         {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -70,7 +71,7 @@ export default function SkillsSection() {
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           
-          {/* Card 1: Core Logic (Biru Pastel) */}
+          {/* Card 1: Core Logic */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -91,7 +92,7 @@ export default function SkillsSection() {
             </div>
           </motion.div>
 
-          {/* Card 2: Vibe Check (Pink Pastel) */}
+          {/* Card 2: Vibe Check */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -112,7 +113,7 @@ export default function SkillsSection() {
             </div>
           </motion.div>
 
-          {/* Card 3: The Soul (Mix Pastel) */}
+          {/* Card 3: The Soul */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -122,7 +123,7 @@ export default function SkillsSection() {
           >
             <div className="flex items-center gap-4 mb-10">
               <div className="p-3 rounded-2xl bg-purple-50 border border-purple-100 shadow-sm group-hover:scale-110 transition-transform">
-                <Heart className="w-6 h-6 text-purple-500" />
+                <IceCream className="w-6 h-6 text-fuchsia-500" />
               </div>
               <h3 className="text-xl font-black text-purple-600 tracking-tight uppercase">The Soul</h3>
             </div>
