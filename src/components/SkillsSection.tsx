@@ -17,7 +17,7 @@ const personalStats = {
   ],
   // Urutan 3: The Soul (Sisi Passion & Love)
   soul: [
-    { name: 'Gaming', level: 50, color: 'from-blue-300 to-pink-300' },
+    { name: 'Family', level: 100, color: 'from-blue-300 to-pink-300' },
     { name: 'Music', level: 90, color: 'from-indigo-200 to-purple-300' },
     { name: 'Him', level: 100, color: 'from-pink-300 via-purple-300 to-blue-300' },
   ],
