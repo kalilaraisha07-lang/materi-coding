@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, ExternalLink, Calendar, Medal } from 'lucide-react';
+import { ExternalLink, Calendar, Medal } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const achievements = [
@@ -67,8 +67,8 @@ export default function CertificatesSection() {
           <div className="w-12 h-1.5 bg-gradient-to-r from-blue-400 to-pink-400 mx-auto mt-4 rounded-full" />
         </motion.div>
 
-        {/* Grid Kartu */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        {/* Grid Kartu - Sekarang pakai 3 kolom (lg:grid-cols-3) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {achievements.map((achieve, index) => (
             <motion.div
               key={achieve.title + index}
@@ -102,14 +102,12 @@ export default function CertificatesSection() {
                     <span>{achieve.date}</span>
                   </div>
                   
-                  {/* ID Box */}
                   <div className="pt-2">
                     <p className="text-[10px] text-slate-400 dark:text-slate-600 font-mono bg-slate-50 dark:bg-slate-950/50 p-3 rounded-xl border border-slate-100 dark:border-slate-800/50 italic">
                       REF: {achieve.credentialId}
                     </p>
                   </div>
                   
-                  {/* Button Detail */}
                   <div className="pt-4">
                     <Button variant="outline" size="sm" className="w-full rounded-2xl border-slate-200 dark:border-slate-700 dark:text-white font-bold text-xs hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-black transition-all" asChild>
                       <a href={achieve.link} target="_blank" rel="noopener noreferrer">
