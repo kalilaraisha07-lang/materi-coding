@@ -50,7 +50,7 @@ const AboutSection = () => {
             
             {/* GAMBAR PROFIL - Sekarang tidak terpotong mukanya */}
             <img 
-              src="/foto-profil.jpg" // Ganti dengan path foto kamu
+              src="/khalila.jpg" // Ganti dengan path foto kamu
               alt="Khalila Profil" 
               className="w-full h-auto object-contain rounded-[40px] transition-transform duration-500 group-hover:scale-105"
             />
