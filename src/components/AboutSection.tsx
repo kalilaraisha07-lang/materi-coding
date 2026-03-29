@@ -27,7 +27,7 @@ const AboutSection = () => {
       <div className="max-w-4xl mx-auto">
         {/* Header Section - Warna teks otomatis ikut tema */}
         <div className="mb-12">
-          <h2 className="text-3xl font-bold mb-4">Passionate Developer & Creative Thinker</h2>
+          <h2 className="text-3xl font-bold mb-4">Digital Explorer & Design Enthusiast</h2>
           <div className="h-1 w-20 bg-blue-500 rounded shadow-[0_0_10px_#3b82f6]"></div>
         </div>
 
