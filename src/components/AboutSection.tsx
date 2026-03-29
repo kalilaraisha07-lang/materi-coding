@@ -69,10 +69,10 @@ const AboutSection = () => {
                {/* Teks Pengalaman yang "Ketutup" - Gunakan hover: untuk membukanya */}
                <div className="flex flex-col group/exp p-2">
                   <span className="block text-2xl font-bold text-slate-800 dark:text-slate-100 tracking-tight leading-none mb-1 group-hover/exp:opacity-100 transition-opacity">
-                      5+ Tahun
+                      
                   </span>
                   <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] group-hover/exp:opacity-100 transition-opacity">
-                      Pengalaman
+                      
                   </p>
                </div>
                
@@ -94,7 +94,7 @@ const AboutSection = () => {
           >
             {/* Judul Baru */}
             <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-slate-100 mb-8 leading-tight tracking-tight">
-              Digital Explorer & <span className="text-indigo-600 dark:text-indigo-400">Front-end Enthusiast</span>
+              Get to know more <span className="text-indigo-600 dark:text-indigo-400">closely</span>
             </h2>
 
             {/* Biodata Baru - Sesuaikan agar profesional untuk siswi SMA */}
