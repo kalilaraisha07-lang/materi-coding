@@ -63,7 +63,7 @@ export default function SkillsSection() {
         >
           <span className="text-primary font-medium mb-2 block">Keahlian</span>
           <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
-            Skills &amp; Teknologi
+            Skills &amp; Hobbies
           </h2>
           <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
         </motion.div>
