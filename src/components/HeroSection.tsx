@@ -1,10 +1,7 @@
 import { motion } from 'framer-motion';
-import { ArrowDown, Github, Linkedin, Youtube, Instagram } from 'lucide-react';
+import { ArrowDown, Github, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ThreeScene from './ThreeScene';
-
-// ✅ PERBAIKAN 1: Hapus import profilePic yang lama karena foldernya tidak ada
-// Sebagai gantinya, kita pakai link gambar langsung di bawah.
 
 export default function HeroSection() {
   const scrollToAbout = () => {
@@ -13,9 +10,9 @@ export default function HeroSection() {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
-    const socialLinks = [
+
+  const socialLinks = [
     { icon: Github, href: 'https://github.com/kalilaraisha07-lang', label: 'GitHub' },
-    
     { icon: Instagram, href: 'https://www.instagram.com/khalilaraisha_/', label: 'Instagram' },
   ];
 
@@ -23,16 +20,18 @@ export default function HeroSection() {
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
       <ThreeScene />
 
-      <div className="container mx-auto px-4 relative z-10 flex flex-col-reverse lg:flex-row items-center lg:items-center gap-10">
-        {/* 📸 Foto di kiri */}
+      {/* Container utama: gap-20 untuk menggeser teks lebih jauh ke kanan dari foto */}
+      <div className="container mx-auto px-4 relative z-10 flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-24">
+        
+        {/* 📸 FOTO PROFIL (Diperbesar) */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           className="flex-shrink-0"
         >
-          <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-blue-300 dark:border-blue-400 shadow-lg bg-white/10 backdrop-blur-sm">
-            {/* ✅ PERBAIKAN 2: Ganti {profilePic} menjadi link gambar avatar lucu */}
+          {/* Ukuran ditingkatkan: w-64/h-64 (mobile) dan w-[350px]/h-[350px] (desktop) */}
+          <div className="w-64 h-64 md:w-80 lg:w-[350px] lg:h-[350px] rounded-full overflow-hidden border-4 border-blue-300 dark:border-blue-400 shadow-2xl bg-white/10 backdrop-blur-sm">
             <img
               src="/foto-profil.jpg"
               alt="Khalila Raisha"
@@ -41,7 +40,7 @@ export default function HeroSection() {
           </div>
         </motion.div>
 
-        {/* 📝 Konten teks di kanan */}
+        {/* 📝 KONTEN TEKS (Tergeser ke kanan karena gap) */}
         <div className="max-w-2xl text-center lg:text-left">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -62,7 +61,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-foreground"
+            className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-foreground leading-tight"
           >
             khalila raisha
           </motion.h1>
@@ -71,7 +70,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-lg md:text-xl text-muted-foreground mb-8"
+            className="text-lg md:text-xl text-muted-foreground mb-8 max-w-lg"
           >
             Baru saja memulai pelayaran di luasnya dunia pemrograman, berupaya
             menghadirkan solusi digital yang jernih dan bermanfaat bagi pengguna.
@@ -106,23 +105,23 @@ export default function HeroSection() {
             </Button>
           </motion.div>
 
+          {/* Perbaikan Social Links: Menggunakan tanda kurung ( ) agar ter-render */}
           <div className="flex items-center justify-center lg:justify-start gap-6">
-            {socialLinks.map((social, index) => {
+            {socialLinks.map((social, index) => (
               <motion.a
                 key={index}
-                href="social.href"
+                href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-full glass hover:shadow-glow transition-all duration-300"
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                aria-Label={social.label}
+                aria-label={social.label}
               >
                 <social.icon className="h-5 w-5 text-foreground" />
-                </motion.a>  
-              })}
-            </div>
-
+              </motion.a>
+            ))}
+          </div>
         </div>
       </div>
 
