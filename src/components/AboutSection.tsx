@@ -2,12 +2,8 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Code2, Video, Rocket, IceCream, ChevronDown } from 'lucide-react';
 
-// Data untuk isi Accordion (bisa kamu ubah tulisannya)
+// ✅ DATA DIPERBARUI: Menghapus Visi & Misi, sisa 2 item saja
 const aboutDetails = [
-  {
-    title: "Visi & Misi",
-    content: "Menciptakan karya digital yang estetik dan bermanfaat. Saya percaya bahwa belajar hal baru setiap hari adalah kunci untuk terus berkembang di dunia teknologi."
-  },
   {
     title: "Hobi & Ketertarikan",
     content: "Selain coding, saya sangat menikmati eksplorasi desain visual dan mencoba berbagai jenis es krim baru sebagai mood booster saat buntu mencari ide."
@@ -19,9 +15,9 @@ const aboutDetails = [
 ];
 
 export default function AboutSection() {
+  // Default open ke index 0 (Hobi)
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  // Statistik dengan 4 Ikon (Termasuk Ice Cream & Rocket)
   const stats = [
     { icon: Code2, value: '10+', label: 'Mini Projects' },
     { icon: Video, value: 'Active', label: 'Learning' },
@@ -55,15 +51,12 @@ export default function AboutSection() {
               transition={{ duration: 0.6 }}
               className="relative"
             >
-              {/* Box Foto/Emoji */}
               <div className="aspect-square rounded-3xl overflow-hidden glass shadow-2xl border border-white/20">
                 <div className="w-full h-full bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center relative">
-                   {/* Ganti 👨‍💻 di bawah ini dengan <img src="/foto-profil.jpg" ... /> jika ingin pakai foto */}
                   <span className="text-9xl filter drop-shadow-xl">👨‍💻</span>
                 </div>
               </div>
               
-              {/* Floating Badge */}
               <motion.div 
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -74,7 +67,6 @@ export default function AboutSection() {
               </motion.div>
             </motion.div>
 
-            {/* Grid 4 Stats */}
             <div className="grid grid-cols-2 gap-4">
               {stats.map((stat, index) => (
                 <motion.div
@@ -113,16 +105,18 @@ export default function AboutSection() {
                 Fokus utama saya adalah membangun tampilan website yang bersih, modern, dan enak dilihat.
               </p>
 
-              {/* Accordion System */}
+              {/* Accordion System (Sekarang hanya 2 item) */}
               <div className="space-y-2">
                 {aboutDetails.map((detail, idx) => (
                   <div key={idx} className="border-b border-white/10">
                     <button
                       onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-                      className="w-full py-4 flex items-center justify-between text-left hover:text-primary transition-colors"
+                      className="w-full py-5 flex items-center justify-between text-left hover:text-primary transition-all group"
                     >
-                      <span className="font-display font-bold text-lg">{detail.title}</span>
-                      <ChevronDown className={`h-5 w-5 transition-transform ${openIndex === idx ? 'rotate-180' : ''}`} />
+                      <span className={`font-display font-bold text-lg transition-colors ${openIndex === idx ? 'text-primary' : ''}`}>
+                        {detail.title}
+                      </span>
+                      <ChevronDown className={`h-5 w-5 transition-transform duration-300 ${openIndex === idx ? 'rotate-180 text-primary' : ''}`} />
                     </button>
                     
                     <AnimatePresence>
@@ -131,6 +125,7 @@ export default function AboutSection() {
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: 'auto', opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3 }}
                           className="overflow-hidden"
                         >
                           <p className="pb-6 text-muted-foreground leading-relaxed">
