@@ -3,11 +3,11 @@ import { motion } from 'framer-motion';
 import { Code2, Video, Coffee, Rocket } from 'lucide-react';
 
 const AboutSection = () => {
-  // Data Statistik untuk ikon di bawah biodata
+  // Data Statistik
   const stats = [
     {
       label: "Projects Selesai",
-      value: "50+",
+      value: "1+",
       icon: <Code2 className="w-6 h-6 text-indigo-500" />,
       bgColor: "bg-indigo-50"
     },
@@ -18,14 +18,14 @@ const AboutSection = () => {
       bgColor: "bg-rose-50"
     },
     {
-      label: "Cangkir Kopi",
-      value: "1000+",
+      label: "ice cream",
+      value: "∞",
       icon: <Coffee className="w-6 h-6 text-amber-500" />,
       bgColor: "bg-amber-50"
     },
     {
       label: "Tahun Pengalaman",
-      value: "5+",
+      value: "3+",
       icon: <Rocket className="w-6 h-6 text-emerald-500" />,
       bgColor: "bg-emerald-50"
     }
@@ -35,38 +35,37 @@ const AboutSection = () => {
     <section id="about" className="py-24 px-6 bg-white overflow-hidden">
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-start gap-16">
         
-        {/* --- SISI KIRI: FOTO (Dikecilkan & Berbingkai) --- */}
+        {/* --- SISI KIRI: FOTO (Penuh sampai ke pinggir bingkai) --- */}
         <motion.div 
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="w-full lg:w-[35%] flex justify-center flex-shrink-0"
+          className="w-full lg:w-[38%] flex justify-center flex-shrink-0"
         >
-          <div className="relative group w-full max-w-[340px]">
-            {/* Bingkai Abu-abu Muda (Rounded Rectangle) */}
-            <div className="aspect-square bg-slate-50 rounded-[45px] border border-slate-100 flex items-center justify-center p-10 shadow-sm transition-all duration-500 group-hover:shadow-md">
-              
-              {/* Kontainer Putih untuk Avatar */}
-              <div className="w-full h-full bg-white rounded-3xl shadow-sm flex items-center justify-center overflow-hidden border border-slate-50">
-                <img 
-                  src="/khalila.jpeg" // Ganti dengan path foto kamu di folder public
-                  alt="Khalila Profil" 
-                  className="w-3/4 h-auto object-contain transition-transform duration-500 group-hover:scale-110"
-                />
-              </div>
+          {/* KONTAINER UTAMA BINGKAI (Sangat melengkung/Rounded) */}
+          <div className="relative group w-full max-w-[360px] aspect-square rounded-[40px] border border-slate-100 shadow-sm bg-slate-50 overflow-hidden">
+            
+            {/* GAMBAR (Penuh mengikuti kontainer & Bentuknya) */}
+            <img 
+              src="/khalila.jpeg" // Ganti dengan path foto kamu yang benar
+              alt="Khalila Profil" 
+              className="absolute inset-0 w-full h-full object-cover rounded-[40px] transition-transform duration-500 group-hover:scale-110"
+            />
+            
+            {/* Overlay Halus saat Hover */}
+            <div className="absolute inset-0 bg-indigo-950/5 group-hover:bg-transparent transition-colors duration-300"></div>
 
-              {/* Label Pengalaman Melayang di Pojok Bawah */}
-              <div className="absolute -bottom-4 -right-4 bg-white p-4 rounded-2xl shadow-xl border border-slate-50 hidden md:block">
-                 <span className="block text-2xl font-bold text-slate-800 tracking-tight leading-none mb-1">5+ Tahun</span>
-                 <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Pengalaman</p>
-              </div>
+            {/* Label Melayang (Sesuai Screenshot 74) */}
+            <div className="absolute bottom-6 -right-4 bg-white p-4 rounded-2xl shadow-xl border border-slate-50 hidden md:block z-10">
+               <span className="block text-2xl font-bold text-slate-800 tracking-tight leading-none mb-1">5+ Tahun</span>
+               <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Pengalaman</p>
             </div>
           </div>
         </motion.div>
 
         {/* --- SISI KANAN: BIODATA & IKON --- */}
-        <div className="w-full lg:w-[65%] text-left">
+        <div className="w-full lg:w-[62%] text-left">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -87,7 +86,7 @@ const AboutSection = () => {
               </p>
             </div>
 
-            {/* Grid Ikon Statistik (Di bawah Biodata) */}
+            {/* Grid Ikon Statistik */}
             <div className="grid grid-cols-2 gap-x-8 gap-y-12 border-t border-slate-100 pt-10">
               {stats.map((stat, index) => (
                 <motion.div 
