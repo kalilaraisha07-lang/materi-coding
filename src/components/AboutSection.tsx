@@ -46,10 +46,10 @@ const AboutSection = () => {
           {/* Kontainer Utama Bingkai (Rounded Rectangle) */}
           <div className="relative group w-full max-w-[360px] aspect-square rounded-[40px] border border-slate-100 dark:border-slate-800 shadow-sm bg-slate-50 dark:bg-slate-900 overflow-hidden">
             
-            {/* GAMBAR (Gunakan object-cover agar penuh) */}
+            {/* GAMBAR BARU - Path disesuaikan ke /khalila-baru.jpg */}
             <img 
-              src="/foto-profil.jpg" // Ganti dengan path foto kamu
-              alt="Khalila Profil" 
+              src="/khalila-baru.jpg" // Ganti dengan path foto kamu
+              alt="Khalila Profil Baru" 
               className="absolute inset-0 w-full h-full object-cover rounded-[40px] transition-transform duration-500 group-hover:scale-110"
             />
             
