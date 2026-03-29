@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Code2, Video, IceCream, Rocket } from 'lucide-react';
 
 const AboutSection = () => {
-  // Data Statistik yang kamu inginkan
+  // Data Statistik
   const stats = [
     {
       label: "Projects Selesai",
@@ -35,25 +35,30 @@ const AboutSection = () => {
     <section id="about" className="py-24 px-6 bg-white dark:bg-slate-950 transition-colors duration-300 overflow-hidden">
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-16">
         
-        {/* --- SISI KIRI: FOTO (Bersih & Penuh) --- */}
+        {/* --- SISI KIRI: FOTO (Bersih & Sejajar) --- */}
         <motion.div 
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="w-full lg:w-[38%] flex justify-center flex-shrink-0"
+          className="w-full lg:w-[38%] flex justify-center flex-shrink-0 lg:mt-[60px]"
         >
+          {/* Kontainer Utama Bingkai (Rounded Rectangle) */}
           <div className="relative group w-full max-w-[360px] aspect-square rounded-[40px] border border-slate-100 dark:border-slate-800 shadow-sm bg-slate-50 dark:bg-slate-900 overflow-hidden">
+            
+            {/* GAMBAR (Gunakan object-cover agar penuh) */}
             <img 
-              src="/khalila-baru.jpg" // Pastikan file fotomu ada di folder public dengan nama ini
+              src="/foto-profil.jpg" // Ganti dengan path foto kamu
               alt="Khalila Profil" 
               className="absolute inset-0 w-full h-full object-cover rounded-[40px] transition-transform duration-500 group-hover:scale-110"
             />
+            
+            {/* Overlay Halus */}
             <div className="absolute inset-0 bg-indigo-950/5 group-hover:bg-transparent transition-colors duration-300"></div>
           </div>
         </motion.div>
 
-        {/* --- SISI KANAN: BIODATA --- */}
+        {/* --- SISI KANAN: JUDUL & BIODATA & IKON --- */}
         <div className="w-full lg:w-[62%] text-left">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -78,21 +83,21 @@ const AboutSection = () => {
             <div className="grid grid-cols-2 gap-x-8 gap-y-12 border-t border-slate-100 dark:border-slate-800 pt-10">
               {stats.map((stat, index) => (
                 <motion.div 
-                  key={index} 
-                  whileHover={{ y: -5 }}
-                  className="flex items-center gap-5 group"
+                    key={index} 
+                    whileHover={{ y: -5 }}
+                    className="flex items-center gap-5 group"
                 >
-                  <div className={`p-4 ${stat.bgColor} rounded-2xl transition-all duration-300 group-hover:shadow-lg group-hover:scale-110`}>
-                    {stat.icon}
-                  </div>
-                  <div>
-                    <span className="block text-3xl font-bold text-slate-800 dark:text-white tracking-tight leading-none mb-1">
-                      {stat.value}
-                    </span>
-                    <p className="text-sm font-semibold text-slate-400 dark:text-slate-500">
-                      {stat.label}
-                    </p>
-                  </div>
+                    <div className={`p-4 ${stat.bgColor} rounded-2xl transition-all duration-300 group-hover:shadow-lg group-hover:scale-110`}>
+                        {stat.icon}
+                    </div>
+                    <div>
+                        <span className="block text-3xl font-bold text-slate-800 dark:text-white tracking-tight leading-none mb-1">
+                            {stat.value}
+                        </span>
+                        <p className="text-sm font-semibold text-slate-400 dark:text-slate-500">
+                            {stat.label}
+                        </p>
+                    </div>
                 </motion.div>
               ))}
             </div>
